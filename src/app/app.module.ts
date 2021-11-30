@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouletteService } from './shared/roulette.service';
 import { ColorDirective } from './directives/color.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ColorDirective } from './directives/color.directive';
     ColorDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [RouletteService],
   bootstrap: [AppComponent]

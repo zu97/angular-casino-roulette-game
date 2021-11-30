@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center mt-3">
   <button type="button" class="btn btn-primary mx-1"
-    [disabled]="isStarted" (click)="start()"
+    [disabled]="isStarted || isBalanceLow()" (click)="start()"
   >Start</button>
   <button type="button" class="btn btn-danger mx-1"
     [disabled]="!isStarted" (click)="stop()"
@@ -8,6 +8,32 @@
   <button type="button" class="btn btn-secondary mx-1"
     (click)="reset()"
   >Reset</button>
+</div>
+<div class="container mt-3" style="max-width: 400px;">
+  <form>
+    <div class="form-group mb-1 w-100">
+      <input type="number" class="form-control" placeholder="Stake amount" name="amount"
+       [(ngModel)]="amount">
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input"
+           id="red" name="color" value="red" [(ngModel)]="color">
+        <label class="form-check-label" for="red">Red</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input"
+           id="black" name="color" value="black" [(ngModel)]="color">
+        <label class="form-check-label" for="black">Black</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input"
+           id="zero" name="color" value="zero" [(ngModel)]="color">
+        <label class="form-check-label" for="zero">Zero</label>
+      </div>
+      <span class="flex-grow-1 text-right">Balance: <strong>{{ balance }}</strong></span>
+    </div>
+  </form>
 </div>
 <hr>
 <div class="container">
