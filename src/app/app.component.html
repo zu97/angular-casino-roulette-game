@@ -1,0 +1,17 @@
+<div class="container d-flex justify-content-center mt-3">
+  <button type="button" class="btn btn-primary mx-1"
+    [disabled]="isStarted" (click)="start()"
+  >Start</button>
+  <button type="button" class="btn btn-danger mx-1"
+    [disabled]="!isStarted" (click)="stop()"
+  >Stop</button>
+  <button type="button" class="btn btn-secondary mx-1"
+    (click)="reset()"
+  >Reset</button>
+</div>
+<hr>
+<div class="container">
+  <div *ngFor="let number of numbers"
+    class="card d-inline-block text-center m-2 display-4"
+    [appColor]="number">{{ number }}</div>
+</div>
